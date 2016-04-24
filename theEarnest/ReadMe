@@ -1,0 +1,68 @@
+Testing Environment:
+===================
+Windows / MAC 
+IDE: Eclipse
+Necessary JARS: Selenium.
+Browser: FireFox 45.0 or higher
+
+
+Testing approaches and running instructions for JungleSocks
+===========================================================
+
+Testing approaches
+I. Verification of each price item.
+	For the matter of testing, we will accept that the expected price of an item
+	will be the one displayed on the "Welcome" page.(Page1)
+	Detailed comments for each step of the process of automation testing are 
+	included in the script itself.( jungleSocks.java ) 
+		The verification of each price item is done by individual price confirmation. 
+		Here is the outline process:
+		a) Navigate to "Welcome" page( https://jungle-socks.herokuapp.com/)
+		a) Extract price item, and prepare for comparing.
+		b) Input quantity - for the verifying price the quantity is equal to one, 
+			for the rest of the items, the quantity is equal to zero.
+		c)add ship-State, continue to "Checkout" page(page2)
+		d)Extract actual price item from "Subtotal" field, prepare for comparing.
+		e)Compare expected price from page1 to actual price from page2.
+		f)Print a confirmation  report. 
+
+II. Verification of each state's tax rate.
+	Requirements: CA tax rate = 0.08, NY tax rate = 0.06, MN tax rate = 0.00,
+				  all other state tax rates = 0.05
+	For the matter of testing, we will not be paying attention on item's price and
+	item's availability. Our focus is directed on whether the certain State's tax rate
+	is correctly calculated.
+	Detailed comments for each step of the process of automation testing are 
+	included in the script itself.( jungleSocks.java ) 
+		Here is the outline process:
+		a) Navigate to "Welcome"(page1) page( https://jungle-socks.herokuapp.com/)
+		b)Input desired quantity of items( in our case, one item per kind)
+		c)Extract drop list with all states available from the drop-down field.
+		d)Select the first available state ( for the matter of calculating the tax portion)
+		e)Continue to checkout page ( page2)
+		f) Extract the information from "Subtotal" and "Taxes" fields and calculate
+		   the applied(actual) tax rate for the chosen state.
+		g)Compare the actual  tax rate to the expected (as per requirements) tax rate.
+		h)Print a confirmation  report.
+
+
+Script running instructions:
+===========================
+	For the matter of successfully run script, we assume that we have already setUp
+	testing environment and we know how to run test scripts as java application or as testNG.
+	1. Create a new Java Project in Eclipse.
+	2. Import "theEarnest" folder
+	3. Run the testSuite:
+		There are two java files in the package. Just for the case of assurance of test 
+	running, the tests may be run from each individual java file. 
+	For example, a) jungleSocks.java may be run directly as a java application.
+		     b) testSuite.java may be run as TestNG. 
+	
+
+Happy Verification!
+		
+		
+		
+		
+		
+		
